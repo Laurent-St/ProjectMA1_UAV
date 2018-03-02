@@ -1,0 +1,4 @@
+- ESP8266 of Gaetano
+- RESET disconnected
+- GPIO0 disconnected
+- GPIO2 to Vcc

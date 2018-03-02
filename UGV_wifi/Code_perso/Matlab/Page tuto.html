@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html class="wf-museoslab-n7-active wf-futurapt-n5-active wf-futurapt-i5-active wf-futurapt-n7-active wf-futurapt-i7-active wf-futurapt-n4-active wf-futurapt-i4-active wf-automate-n7-active wf-minionprosubhead-n4-active wf-active"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>Getting started with WiFi on Arduino Hardware - MATLAB &amp; Simulink Example - MathWorks Benelux</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link href="Page%20tuto_fichiers/bootstrap.css" rel="stylesheet" type="text/css">
+<link href="Page%20tuto_fichiers/site6.css" rel="stylesheet" type="text/css">
+<link href="Page%20tuto_fichiers/site6_lg.css" rel="stylesheet" media="screen and (min-width: 1200px)">
+<link href="Page%20tuto_fichiers/site6_md.css" rel="stylesheet" media="screen and (min-width: 992px) and (max-width: 1199px)">
+<link href="Page%20tuto_fichiers/site6_smxs.css" rel="stylesheet" media="screen and (max-width: 991px)">
+<link href="Page%20tuto_fichiers/site6_sm.css" rel="stylesheet" media="screen and (min-width: 768px) and (max-width: 991px)">
+<link href="Page%20tuto_fichiers/site6_xs.css" rel="stylesheet" media="screen and (max-width: 767px)">
+<!--[if IE 8]>
+<link href="/includes_content/responsive/css/site6_ie8.css?20170913" rel="stylesheet" type="text/css">
+<script src="/includes_content/responsive/scripts/bootstrap/html5shiv-printshiv.js"></script>
+<script src="/includes_content/responsive/scripts/bootstrap/respond.min.js"></script>
+<script src="/includes_content/responsive/scripts/bootstrap/placeholders.min.js"></script>
+<![endif]-->
+<!--[if IE 9]>
+<link href="/includes_content/responsive/css/site6_ie9.css?20170913" rel="stylesheet" type="text/css">
+<script src="/includes_content/responsive/scripts/bootstrap/placeholders.min.js"></script>
+<![endif]-->
+<link href="Page%20tuto_fichiers/site6_offcanvas.css" rel="stylesheet" type="text/css">
+<!--[if IE 8]>
+<link href="/includes_content/responsive/css/site6_offcanvas_ie8.css?20170913" rel="stylesheet" type="text/css">
+<script src="/includes_content/responsive/scripts/bootstrap/respond.min.js"></script>
+<![endif]-->
+<script src="Page%20tuto_fichiers/jquery-latest.js"></script>
+<script src="Page%20tuto_fichiers/jquery_003.js"></script>
+<script src="Page%20tuto_fichiers/bootstrap.js"></script>
+<script src="Page%20tuto_fichiers/global.js"></script>
+<script src="Page%20tuto_fichiers/xvy5baa.js"></script>
+<style type="text/css">.tk-museo-slab{font-family:"museo-slab",serif;}.tk-futura-pt{font-family:"futura-pt","Arial","Helvetica",sans-serif;}.tk-automate{font-family:"automate",sans-serif;}.tk-minion-pro-subhead{font-family:"minion-pro-subhead",serif;}</style><style type="text/css">@font-face{font-family:museo-slab;src:url(//fonts.mathworks.com/k/0e548aec395bd99926a27577e842e818def6ba83-l.woff2) format("woff2"),url(//fonts.mathworks.com/k/0e548aec395bd99926a27577e842e818def6ba83-d.woff) format("woff"),url(//fonts.mathworks.com/k/0e548aec395bd99926a27577e842e818def6ba83-a.otf) format("opentype");font-weight:700;font-style:normal;}@font-face{font-family:futura-pt;src:url(//fonts.mathworks.com/k/87868ea7533b245fa343d5fd2e370ee0daee1db8-l.woff2) format("woff2"),url(//fonts.mathworks.com/k/87868ea7533b245fa343d5fd2e370ee0daee1db8-d.woff) format("woff"),url(//fonts.mathworks.com/k/87868ea7533b245fa343d5fd2e370ee0daee1db8-a.otf) format("opentype");font-weight:500;font-style:normal;}@font-face{font-family:futura-pt;src:url(//fonts.mathworks.com/k/fa63f4ee95571fac0c3fde550489d0874f44e7d1-l.woff2) format("woff2"),url(//fonts.mathworks.com/k/fa63f4ee95571fac0c3fde550489d0874f44e7d1-d.woff) format("woff"),url(//fonts.mathworks.com/k/fa63f4ee95571fac0c3fde550489d0874f44e7d1-a.otf) format("opentype");font-weight:500;font-style:italic;}@font-face{font-family:futura-pt;src:url(//fonts.mathworks.com/k/78f589bb61056c7dc2c42601e2fd59aa96941141-l.woff2) format("woff2"),url(//fonts.mathworks.com/k/78f589bb61056c7dc2c42601e2fd59aa96941141-d.woff) format("woff"),url(//fonts.mathworks.com/k/78f589bb61056c7dc2c42601e2fd59aa96941141-a.otf) format("opentype");font-weight:700;font-style:normal;}@font-face{font-family:futura-pt;src:url(//fonts.mathworks.com/k/599bfc6908295758da16f495738fa5c76ccf9542-l.woff2) format("woff2"),url(//fonts.mathworks.com/k/599bfc6908295758da16f495738fa5c76ccf9542-d.woff) format("woff"),url(//fonts.mathworks.com/k/599bfc6908295758da16f495738fa5c76ccf9542-a.otf) format("opentype");font-weight:700;font-style:italic;}@font-face{font-family:futura-pt;src:url(//fonts.mathworks.com/k/0ffa5e8c8eb076cc21ede9987250dfa4f2af4438-l.woff2) format("woff2"),url(//fonts.mathworks.com/k/0ffa5e8c8eb076cc21ede9987250dfa4f2af4438-d.woff) format("woff"),url(//fonts.mathworks.com/k/0ffa5e8c8eb076cc21ede9987250dfa4f2af4438-a.otf) format("opentype");font-weight:400;font-style:normal;}@font-face{font-family:futura-pt;src:url(//fonts.mathworks.com/k/3f4899217323502feaae94c179311206f731a52e-l.woff2) format("woff2"),url(//fonts.mathworks.com/k/3f4899217323502feaae94c179311206f731a52e-d.woff) format("woff"),url(//fonts.mathworks.com/k/3f4899217323502feaae94c179311206f731a52e-a.otf) format("opentype");font-weight:400;font-style:italic;}@font-face{font-family:automate;src:url(//fonts.mathworks.com/k/d4415a0418b08bbbf46e20588c2761ef9bd0aa79-l.woff2) format("woff2"),url(//fonts.mathworks.com/k/d4415a0418b08bbbf46e20588c2761ef9bd0aa79-d.woff) format("woff"),url(//fonts.mathworks.com/k/d4415a0418b08bbbf46e20588c2761ef9bd0aa79-a.otf) format("opentype");font-weight:700;font-style:normal;}@font-face{font-family:minion-pro-subhead;src:url(//fonts.mathworks.com/k/d4d1694195e6776198a56670eb3252a367c04b04-l.woff2) format("woff2"),url(//fonts.mathworks.com/k/d4d1694195e6776198a56670eb3252a367c04b04-d.woff) format("woff"),url(//fonts.mathworks.com/k/d4d1694195e6776198a56670eb3252a367c04b04-a.otf) format("opentype");font-weight:400;font-style:normal;}</style><script>try{Typekit.load();}catch(e){}</script>
+<!-- BEGIN Adobe DTM -->
+<script src="Page%20tuto_fichiers/satelliteLib-e8d23c2e444abadc572df06537e2def59c01db09.js"></script>
+<!-- END Adobe DTM -->
+<link href="Page%20tuto_fichiers/doc_center.css" rel="stylesheet" type="text/css">
+<!--[if IE 8]>
+<link href="/includes_content/releases/R2017b/css/doc_center_ie8.css?20170913" rel="stylesheet" type="text/css">
+<![endif]-->
+<!--[if IE 9]>
+<link href="/includes_content/releases/R2017b/css/doc_center_ie9.css?20170913" rel="stylesheet" type="text/css">
+<![endif]-->
+<link href="Page%20tuto_fichiers/doc_center_print.css" rel="stylesheet" type="text/css" media="print">
+<script src="Page%20tuto_fichiers/matlab_dialog.js"></script>
+<script src="Page%20tuto_fichiers/openwith.js"></script>
+<style>
+.examples_short_list a.btn {display: none;}
+</style>
+<link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" href="Page%20tuto_fichiers/docstyle.css" type="text/css">
+<meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="Content-Script-Type" content="text/javascript">
+<meta xmlns="http://www.w3.org/1999/xhtml" name="toctype" itemprop="pagetype" content="fe">
+<meta xmlns="http://www.w3.org/1999/xhtml" name="infotype" itemprop="infotype" content="ex">
+<meta xmlns="http://www.w3.org/1999/xhtml" name="description" itemprop="description" content="This example shows how to use Simulink Support Package for Arduino hardware to receive and send TCP/IP or UDP messages over WiFi using Arduino boards.">
+<meta xmlns="http://www.w3.org/1999/xhtml" content="../../../examples/arduino_product/win64/arduino_wifi_04.png" itemprop="thumbnailUrl">
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="Page%20tuto_fichiers/l10n.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="Page%20tuto_fichiers/docscripts.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="Page%20tuto_fichiers/f1help.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="Page%20tuto_fichiers/mw_004.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="Page%20tuto_fichiers/mw_003.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="Page%20tuto_fichiers/mw.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="Page%20tuto_fichiers/mw_002.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="Page%20tuto_fichiers/jquery.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="Page%20tuto_fichiers/nanoscroller.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="Page%20tuto_fichiers/underscore-min.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="Page%20tuto_fichiers/examples.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="Page%20tuto_fichiers/doc_omniture.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="Page%20tuto_fichiers/overload.js"></script>
+<!-- Additions/overrides from the doc side -->
+<script type="text/javascript" src="Page%20tuto_fichiers/docsearch.js"></script>
+<script type="text/javascript" src="Page%20tuto_fichiers/jquery_004.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="Page%20tuto_fichiers/MathRenderer.js"></script><style type="text/css">math { visibility: hidden; }</style><link type="text/css" rel="stylesheet" href="Page%20tuto_fichiers/main.css"><script type="text/javascript" src="Page%20tuto_fichiers/dojo.js"></script>
+<script type="text/javascript" src="Page%20tuto_fichiers/jquery_002.js"></script>
+<script type="text/javascript">
+(function() {
+// Check if cookies are enabled
+function cookiesEnabled() {
+return $.cookie('check', 'valid', { expires: 1 }) && $.cookie('check') == 'valid';
+}
+// Set the language of the domain and redirect to the domain
+function setDomainLanguage(language) {
+if($.cookie("lang") != null) {
+$.cookie("lang", null, { path: '/', domain: 'ch.mathworks.com'});
+}
+$.cookie("lang", 'lang=' + language, {path: '/', expires: 365, domain: 'ch.mathworks.com'});
+}
+// do not display the domain selector if querystring is not present
+// or if query string has nocookie value
+// or if cookies are disabled
+var displayDomainSelector = true;
+function detectDomain() {
+var queries = {};
+$.each(document.location.search.substr(1).split('&'), function(c,q){
+if(q != undefined && q != "") {
+var i = q.split('=');
+if(i[1] != undefined) {
+queries[i[0].toString()] = i[1].toString();
+}
+}
+});
+var requested_domain = (queries['requestedDomain'] != undefined) ? queries['requestedDomain'] : "";
+var nocookie = (queries['nocookie'] != undefined) ? queries['nocookie'] : "";
+var client = (queries['client'] != undefined) ? queries['client'] : "";
+if(requested_domain == "" || nocookie == "true" || !cookiesEnabled() || client == "addons" || window.overrideDomainSelector) {
+displayDomainSelector = false;
+}
+}
+detectDomain();
+function extractDomain(url) {
+var domain;
+//find & remove protocol (http, ftp, etc.) and get domain
+if (url.indexOf("://") > -1) {
+domain = url.split('/')[2];
+} else {
+domain = url.split('/')[0];
+}
+//find & remove port number
+domain = domain.split(':')[0];
+return domain;
+}
+function getDomainContent(returnContent) {
+// Get the location information from the marketing site
+$.ajax({
+url : "/includes_content/domainSelect/location.html",
+type : "get",
+async: false,
+success : function(data) {
+$("#location_content").html(data);
+var button_link = $("#button_link").text();
+var current_location = $("#current_location").text();
+var location_key = $("#location_key").text();
+//Set the location in the text and button
+$(".text_location").text(current_location);
+$("#domain_select_button").text("Select " + current_location);
+// if the current location is different from the browser location, update the button functionality
+var browser_domain = extractDomain(window.location.href);
+if(button_link.indexOf(browser_domain) == -1) {
+// Get the current page link from the links within the selector
+new_button_link = $("." + location_key).attr("href");
+$("#domain_select_button").attr("href",new_button_link);
+$("#domain_select_button").removeAttr("data-dismiss");
+}
+}
+});
+if(returnContent) {
+return $('#country-unselected').html();
+}
+}
+$(document).ready(function () {
+//setLocation();
+// determine if links need to be rewritten
+if ( $( "#country-unselected li a" ).length ) {
+$("#country-unselected li a").each(function() {
+var link_url = $(this).attr("href").replace(/%26requestedDomain(%3D[^%26|&]*)?|requestedDomain(%3D[^%26|&]*)?(%26)?/, "");
+$(this).attr("href", link_url);
+});
+}
+if ( $( "li.headernav_login > a" ).length ) {
+var login_url = $("li.headernav_login > a").attr("href").replace(/%26requestedDomain(%3D[^%26|&]*)?|requestedDomain(%3D[^%26|&]*)?(%26)?/, "");
+$("li.headernav_login > a").attr("href", login_url);
+}
+if ( $( "li.mwa-nav_logout > a" ).length ) {
+var login_url = $("li.mwa-nav_logout > a").attr("href").replace(/%26requestedDomain(%3D[^%26|&]*)?|requestedDomain(%3D[^%26|&]*)?(%26)?/, "");
+$("li.mwa-nav_logout > a").attr("href", login_url);
+}
+if ( $( ".mwa-nav li a" ).length ) {
+$(".mwa-nav li a").each(function() {
+var link_url = $(this).attr("href").replace(/%26requestedDomain(%3D[^%26|&]*)?|requestedDomain(%3D[^%26|&]*)?(%26)?/, "");
+$(this).attr("href", link_url);
+});
+}
+$('body').on('click','.footernav_country a',function(){
+getDomainContent(false);
+});
+// set the click function for Switzerland/English link
+$('body').on('click','#swiss_english',function(){
+setDomainLanguage('en');
+});
+// set the click function for Switzerland/French link
+$('body').on('click','#swiss_french',function(){
+setDomainLanguage('fr');
+});
+// set the click function for the Switzerland/German link
+$('body').on('click','#swiss_german',function(){
+setDomainLanguage('de');
+});
+});
+// onload functionality for the selector
+$(document).ready(function () {
+if(displayDomainSelector) {
+getDomainContent(false);
+$('#country-unselected').modal('show');
+}
+});
+})(jQuery);
+</script>
+</head>
+  
+<body id="responsive_offcanvas" class="no_animate">
+
+  <!-- Mobile TopNav: Start -->
+<div class="header visible-xs visible-sm" id="header_mobile" translate="no" style="">
+<nav class="navbar navbar-default" role="navigation">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle topnav_toggle" data-toggle="collapse" data-target="#topnav_collapse">
+<span class="sr-only">Toggle Main Navigation</span>
+<span class="icon-menu"></span>
+</button>
+<a href="https://nl.mathworks.com/?s_tid=gn_logo" class="svg_link navbar-brand">
+<img src="Page%20tuto_fichiers/pic-header-mathworks-logo.svg" class="mw_logo" alt="MathWorks">
+</a>
+</div>
+</div>
+</div>
+<div class="row visible-xs visible-sm">
+<div class="col-xs-12">
+<div class="navbar-collapse collapse" id="topnav_collapse">
+<ul class="nav navbar-nav" id="topnav">
+<li class="headernav_login dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+Laurent
+<b class="caret"></b>
+</a>
+<ul class="dropdown-menu">
+<li class="mwa-nav_account"><a href="https://nl.mathworks.com/mwaccount/?s_tid=gn_myac">My Account</a></li>
+<li class="mwa-nav_associate"><a href="https://nl.mathworks.com/licensecenter/workflows/associate_license?s_tid=gn_aslc">Associate License</a></li>
+<li class="mwa-nav_community"><a href="https://nl.mathworks.com/matlabcentral/profile/authors/my_profile/?s_tid=gn_comm">My Community Profile</a></li>
+<li class="mwa-nav_logout"><a href="https://nl.mathworks.com/login/logout?uri=http://nl.mathworks.com/help/supportpkg/arduino/examples/getting-started-with-wifi-on-arduino-hardware.html" id="mwa-log_out">Log Out</a></li>
+</ul>
+</li>
+<li class="topnav_products "><a href="https://nl.mathworks.com/products.html?s_tid=gn_ps">Products</a></li>
+<li class="topnav_solutions "><a href="https://nl.mathworks.com/solutions.html?s_tid=gn_sol">Solutions</a></li>
+<li class="topnav_academia "><a href="https://nl.mathworks.com/academia.html?s_tid=gn_acad">Academia</a></li>
+<li class="topnav_support "><a href="https://nl.mathworks.com/support/?s_tid=gn_supp">Support</a></li>
+<li class="topnav_community "><a href="https://nl.mathworks.com/matlabcentral/?s_tid=gn_mlc">Community</a></li>
+<li class="topnav_events "><a href="https://nl.mathworks.com/company/events.html?s_tid=gn_ev">Events</a></li>
+<li class="headernav_contact"><a href="https://nl.mathworks.com/company/aboutus/contact_us.html?s_tid=gn_cntus">Contact Us</a></li>
+<li class="headernav_store"><a href="https://nl.mathworks.com/store?s_cid=store_top_nav&amp;s_tid=gn_store">How to Buy</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</div>
+<!-- Mobile TopNav: End -->
+<!-- Desktop TopNav: Start -->
+<div class="header hidden-xs hidden-sm" id="header_desktop" translate="no">
+<nav class="navbar navbar-default" role="navigation">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+<div class="collapse navbar-collapse" id="headernav_collapse">
+<ul class="nav navbar-nav navbar-right" id="headernav">
+<li class="headernav_contact"><a href="https://nl.mathworks.com/company/aboutus/contact_us.html?s_tid=gn_cntus">Contact Us</a></li>
+<li class="headernav_store"><a href="https://nl.mathworks.com/store?s_cid=store_top_nav&amp;s_tid=gn_store">How to Buy</a></li>
+<li class="headernav_login dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+Laurent
+<b class="caret"></b>
+</a>
+<ul class="dropdown-menu">
+<li class="mwa-nav_account"><a href="https://nl.mathworks.com/mwaccount/?s_tid=gn_myac">My Account</a></li>
+<li class="mwa-nav_associate"><a href="https://nl.mathworks.com/licensecenter/workflows/associate_license?s_tid=gn_aslc">Associate License</a></li>
+<li class="mwa-nav_community"><a href="https://nl.mathworks.com/matlabcentral/profile/authors/my_profile/?s_tid=gn_comm">My Community Profile</a></li>
+<li class="mwa-nav_logout"><a href="https://nl.mathworks.com/login/logout?uri=http://nl.mathworks.com/help/supportpkg/arduino/examples/getting-started-with-wifi-on-arduino-hardware.html" id="mwa-log_out">Log Out</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-xs-12">
+<div class="navbar-header">
+<div class="logo_container hidden-xs hidden-sm">
+<a href="https://nl.mathworks.com/?s_tid=gn_logo" class="svg_link pull-left">
+<img src="Page%20tuto_fichiers/pic-header-mathworks-logo.svg" class="mw_logo" alt="MathWorks">
+</a>
+</div>
+<div class="navbar-collapse collapse hidden-xs hidden-sm">
+<ul class="nav navbar-nav" id="topnav">
+<li class="topnav_products "><a href="https://nl.mathworks.com/products.html?s_tid=gn_ps">Products</a></li>
+<li class="topnav_solutions "><a href="https://nl.mathworks.com/solutions.html?s_tid=gn_sol">Solutions</a></li>
+<li class="topnav_academia "><a href="https://nl.mathworks.com/academia.html?s_tid=gn_acad">Academia</a></li>
+<li class="topnav_support "><a href="https://nl.mathworks.com/support/?s_tid=gn_supp">Support</a></li>
+<li class="topnav_community "><a href="https://nl.mathworks.com/matlabcentral/?s_tid=gn_mlc">Community</a></li>
+<li class="topnav_events "><a href="https://nl.mathworks.com/company/events.html?s_tid=gn_ev">Events</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</div>
+<!-- Desktop TopNav: End -->
+<!-- Conjoined Header: Start -->
+<div class="sticky_header_container includes_subnav affix">
+<!-- Section Header: Start -->
+<div class="section_header level_3">
+<div class="container-fluid">
+<div class="row" id="mobile_search_row">
+<div class="col-xs-12 col-sm-6 col-sm-push-6 col-md-5 col-md-push-7" id="mobile_search">
+<div class="search_nested_content_container">
+<div id="search_scope_doc" class="collapse in">
+<form id="docsearch_form" name="docsearch_form" method="get" data-release="R2017b" data-language="en" action="../../../search.html">
+<div class="input-group tokenized_search_field">
+<label class="sr-only">Search MATLAB Documentation</label>
+<input class="form-control conjoined_search" autocomplete="off" name="qdoc" placeholder="Search R2017b Documentation" id="docsearch" type="text">
+<div class="input-group-btn">
+<button type="button" class="btn btn_search_adjacent dropdown-toggle" data-toggle="dropdown" tabindex="-1"><span class="caret"></span><span class="search_scope_label">Documentation</span></button>
+<ul class="dropdown-menu list-unstyled dropdown-menu-right" role="menu">
+<!-- <li data-toggle="collapse" data-target="#search_scope_doc"><a href="#">Documentation</a></li> -->
+<li data-toggle="collapse" data-target="#search_scope_support" class="doc_search_scope_trigger"><a href="#">Support</a></li>
+<li data-toggle="collapse" data-target="#search_scope_site" class="doc_search_scope_trigger"><a href="#">MathWorks</a></li>
+</ul>
+<script>
+$(".doc_search_scope_trigger").click(function() {
+$("#search_scope_doc").removeClass("in");
+$("#search").val($("#docsearch").val());
+$("#query").val($("#docsearch").val());
+});
+</script>
+<button type="submit" name="submitsearch" id="submitsearch" class="btn icon-search btn_search_adjacent btn_search icon_16" tabindex="-1" disabled="disabled"></button>
+</div>
+</div>
+</form>
+</div>
+<div id="search_scope_support" class="collapse">
+<form id="support_search" action="/support/search_results.html" method="get" accept-charset="utf-8">
+<div class="input-group">
+<label class="sr-only">Search All Support Resources</label>
+<input id="suggestion" name="suggestion" value="" type="hidden">
+<span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
+<input id="search" class="form-control conjoined_search" name="q" placeholder="Search All Support Resources" autocomplete="off" type="text">
+<div class="input-group-btn">
+<button type="button" class="btn btn_search_adjacent dropdown-toggle" data-toggle="dropdown" tabindex="-1"><span class="caret"></span><span class="search_scope_label">Support</span></button>
+<ul class="dropdown-menu list-unstyled dropdown-menu-right" role="menu">
+<li data-toggle="collapse" data-target="#search_scope_doc" class="support_search_scope_trigger"><a href="#">Documentation</a></li>
+<!--<li data-toggle="collapse" data-target="#search_scope_support"><a href="#">Support</a></li>-->
+<li data-toggle="collapse" data-target="#search_scope_site" class="support_search_scope_trigger"><a href="#">MathWorks</a></li>
+</ul>
+<script>
+$(".support_search_scope_trigger").click(function() {
+$("#search_scope_support").removeClass("in");
+$("#docsearch").val($("#search").val());
+$("#query").val($("#search").val());
+});
+</script>
+<button type="submit" name="submitsearch" id="support_submitsearch" class="btn icon-search btn_search_adjacent btn_search icon_16" tabindex="-1"></button>
+</div>
+</div>
+</form>
+</div>
+<div id="search_scope_site" class="collapse">
+<form name="search" id="site_search" class="site_search" action="/search/site_search.html" method="get">
+<div class="input-group">
+<label class="sr-only">Search MathWorks.com</label>
+<input name="c[]" value="entire_site" type="hidden">
+<input name="q" id="query" class="form-control conjoined_search" placeholder="Search MathWorks.com" autocomplete="off" \="" type="text">
+<div class="input-group-btn">
+<button type="button" class="btn btn_search_adjacent dropdown-toggle" data-toggle="dropdown" tabindex="-1"><span class="caret"></span><span class="search_scope_label">MathWorks</span></button>
+<ul class="dropdown-menu list-unstyled dropdown-menu-right" role="menu">
+<li data-toggle="collapse" data-target="#search_scope_doc" class="site_search_scope_trigger"><a href="#">Documentation</a></li>
+<li data-toggle="collapse" data-target="#search_scope_support" class="site_search_scope_trigger"><a href="#">Support</a></li>
+<!--<li data-toggle="collapse" data-target="#search_scope_site" class="support_search_scope_trigger"><a href="#">MathWorks</a></li>-->
+</ul>
+<script>
+$(".site_search_scope_trigger").click(function() {
+$("#search_scope_site").removeClass("in");
+$("#search").val($("#query").val());
+$("#docsearch").val($("#query").val());
+});
+</script>
+<button type="submit" id="searchbutton" class="btn icon-search btn_search_adjacent btn_search icon_16" tabindex="-1"></button>
+</div>
+</div>
+</form>
+</div>
+</div>
+<button class="btn icon-remove btn_search pull-right icon_32 visible-xs" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button>
+</div>
+<div class="col-sm-6 col-sm-pull-6 col-md-7 col-md-pull-5" id="section_header_title">
+<div class="section_header_content">
+<div class="section_header_title add_cursor_pointer">
+<h1>Documentation</h1>
+</div>
+</div>
+</div>
+<div class="visible-xs" id="search_actuator">
+<button class="btn icon-search btn_search pull-right icon_16" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button>
+</div>
+</div>
+<script>
+$(".section_header_title").click(function(){
+$(window.location).attr('href', '/help');
+});
+</script>
+<!-- Section Header: End -->
+<!-- Mobile Local Nav: Start -->
+<!-- Mobile Local Nav: End -->
+</div>
+</div>
+<!-- Horo Nav: Start -->
+<div class="horizontal_nav">
+<div class="horizontal_nav_container">
+<div class="offcanvas_actuator active" data-toggle="offcanvas" data-target="#sidebar" id="nav_toggle">
+<button type="button" class="btn">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-menu"></span>
+</button>
+<span class="offcanvas_actuator_label" id="translation_icon-menu" tabindex="0"></span>
+<span class="offcanvas_actuator_close" tabindex="0"></span>
+</div>
+<div class="offcanvas_horizontal_nav">
+<div class="container-fluid">
+<div class="row">
+<div class="col-md-12 hidden-xs hidden-sm">
+<div class="cta_box">
+<ul class="list-inline">
+<li class="cta_item cta_item_general"><a href="https://nl.mathworks.com/programs/bounce/doc_tryit.html" class="icon-download">Trial Software</a></li>
+<li class="cta_item cta_item_general"><a href="https://nl.mathworks.com/support/web_downloads_bounce.html?s_cid=1008_degr_docdn_270055" class="icon-download">Product Updates</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Horo Nav: End -->
+</div>
+<!-- Conjoined Header: End -->
+
+  <div class="row-offcanvas row-offcanvas-left active">
+  
+    <div class="sidebar-offcanvas" id="sidebar" role="navigation">
+      <nav class="offcanvas_nav" role="navigation">
+          <ul xmlns="http://www.w3.org/1999/xhtml" class="nav_breadcrumb"><li itemscope="" itemtype="http://www.data-vocabulary.org/Breadcrumb" itemprop="breadcrumb"><a href="https://nl.mathworks.com/help/examples.html" itemprop="url"><span itemprop="title">Examples Home</span></a></li></ul>
+<ul xmlns="http://www.w3.org/1999/xhtml" class="nav_disambiguation"><li class="product"><a href="https://nl.mathworks.com/help/supportpkg/arduino/index.html">Simulink Support Package for Arduino Hardware</a>
+<div class="dropdown">
+<span class="icon-arrow-down icon_16" id="dropdownMenu1" data-toggle="dropdown"></span>
+<ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu1">
+<li role="presentation"><a role="menuitem" tabindex="-1" href="https://nl.mathworks.com/help/supportpkg/arduino/index.html?s_cid=doc_flyout">Documentation Home</a></li>
+<li role="presentation"><a role="menuitem" tabindex="-1" href="https://nl.mathworks.com/help/supportpkg/arduino/blocklist.html?s_cid=doc_flyout">Blocks</a></li>
+<li role="presentation"><a role="menuitem" tabindex="-1" href="https://nl.mathworks.com/help/supportpkg/arduino/release-notes.html?s_cid=doc_flyout">Release Notes</a></li>
+</ul>
+</div>
+</li>
+<li itemscope="" itemtype="http://www.data-vocabulary.org/Breadcrumb" itemprop="breadcrumb"><a href="https://nl.mathworks.com/help/supportpkg/arduino/examples.html#d0e29" itemprop="url"><span itemprop="title">Arduino Examples</span></a></li><li itemscope="" itemtype="http://www.data-vocabulary.org/Breadcrumb" itemprop="breadcrumb"><a href="https://nl.mathworks.com/help/supportpkg/arduino/examples.html#d0e34" itemprop="url"><span itemprop="title">Tutorials</span></a></li></ul><ul xmlns="http://www.w3.org/1999/xhtml" class="nav_scrollspy nav">
+<li class="nav_scrollspy_function"><a href="#responsive_offcanvas">Getting started with WiFi on Arduino® Hardware</a></li>
+<li class="nav_scrollspy_title" id="SSPY810-section">On this page</li>
+<!--ADD_REFENTRY_TITLE_HERE--><li class=""><a href="#d118e1663" class="intrnllnk">Introduction</a></li><li class=""><a href="#d118e1673" class="intrnllnk">Prerequisites</a></li><li class=""><a href="#d118e1682" class="intrnllnk">Required Hardware</a></li><li class="active"><a href="#d118e1700" class="intrnllnk">Configuring WiFi hardware</a></li><li><a href="#d118e1748" class="intrnllnk">Configure Network Properties for Host Machine and WiFi hardware</a></li><li><a href="#d118e1757" class="intrnllnk">Task 1 - Configure the Model for Supported Arduino Hardware</a></li><li><a href="#d118e1792" class="intrnllnk">Task 2 - Sending TCP/IP Data over WiFi using Arduino Hardware</a></li><li><a href="#d118e1855" class="intrnllnk">Task 3 - Receiving TCP/IP Data over WiFi with Arduino Hardware</a></li><li><a href="#d118e1933" class="intrnllnk">Task 4 - Sending UDP Data over WiFi using Arduino Hardware</a></li><li><a href="#d118e1996" class="intrnllnk">Task 5 - Receiving UDP Data over WiFi using Arduino Hardware</a></li><li><a href="#d118e2067" class="intrnllnk">Summary</a></li></ul>
+
+      </nav>
+      <script src="Page%20tuto_fichiers/offcanvas.js"></script>
+    </div>
+
+    <!-- MOBILE CTA - Begin -->
+    <!-- MOBILE CTA - End -->
+
+
+    <div class="content_container" id="content_container">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-xs-12">
+                       
+
+
+
+
+
+                   
+    
+       
+<section xmlns="http://www.w3.org/1999/xhtml" id="doc_center_content" lang="en"><div id="pgtype-example">                
+
+       
+<section itemprop="content"><div class="example_icon"></div><h2 class="title r2017b example" itemprop="title content" id="example-arduino_wifi">Getting started with WiFi on Arduino® Hardware</h2><div class="pull-right examples_short_list" style="width:250px; margin-left: 10px; margin-bottom: 10px;"><div data-pane="metadata" style="margin-bottom: 0px;" class="panel metadata_container"><div class="panel-body metadata_content" style="padding-top:0px; padding-bottom:0px;"><div class="row"><div class="col-xs-12"><a class="btn btn_secondary btn-block" href="matlab:arduino_wifi" style="display: inline-block;">Try it in MATLAB</a></div></div></div></div></div><div itemscope="" itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage/Example" itemprop="example" class="em_example"><meta itemprop="exampleid" content="arduino_product-arduino_wifi"><meta itemprop="exampletitle" content="Getting started with WiFi on Arduino® Hardware"></div><span id="arduino_wifi" class="anchor_target"></span>
+
+<p class="shortdesc">This example shows how to use Simulink Support 
+Package for Arduino hardware to receive and send TCP/IP or UDP messages 
+over WiFi using Arduino boards.</p>
+
+<p><strong class="emphasis bold">Supported Board:</strong></p>
+
+<p></p>
+<div class="itemizedlist"><ul><li><p>Arduino Leonardo</p></li><li><p>Arduino Mega 2560</p></li><li><p>Arduino Mega ADK</p></li><li><p>Arduino Uno</p></li><li><p>Arduino Due</p></li><li><p>Arduino MKR1000</p></li></ul></div><p>
+</p>
+
+<p><strong class="emphasis bold">Available versions of this example:</strong></p>
+
+<p>Arduino Mega 2560 board with WiFi Shield:</p>
+
+<p></p>
+<div class="itemizedlist"><ul><li><p><a href="matlab:arduinomega2560_wifitcpsend" target="_top">Arduino Mega 2560 TCP/IP Send</a></p></li><li><p><a href="matlab:arduinomega2560_wifitcpreceive" target="_top">Arduino Mega 2560 TCP/IP Receive</a></p></li><li><p><a href="matlab:arduinomega2560_wifiudpsend" target="_top">Arduino Mega 2560 UDP Send</a></p></li><li><p><a href="matlab:arduinomega2560_wifiudpreceive" target="_top">Arduino Mega 2560 UDP Receive</a></p></li></ul></div><p>
+</p>
+
+<p>The provided model is pre-configured for Arduino Mega 2560 with a 
+WiFi Shield. It can be run on any of the board listed in the "Supported 
+Hardware" section, by changing the "Hardware board" parameter in the 
+configuration parameters dialog box of the model as described in Task 1 
+of this example.</p>
+
+<div class="procedure"><h3 class="title" id="d118e1663">Introduction<span id="arduino_wifi-1" class="anchor_target"></span></h3><p>Simulink
+ Support Package for Arduino hardware enables you to create and run 
+Simulink® models on Arduino board. The target includes a library of 
+Simulink blocks for configuring and accessing Arduino sensors, 
+actuators, and communication interfaces.</p><p>In this example, you will
+ learn how to create Simulink models receiving TCP/IP or UDP messages 
+from a remote host and sending TCP/IP or UDP messages to a remote host, 
+identified with a unique IP address and port number.</p><p>The host 
+model uses the blocks from the Instrument Control Toolbox to send and 
+receive TCP/IP or UDP messages to the target hardware.</p><h3 class="title" id="d118e1673">Prerequisites<span id="arduino_wifi-2" class="anchor_target"></span></h3><p>We recommend completing <a href="https://nl.mathworks.com/help/supportpkg/arduino/examples/getting-started-with-arduino-hardware.html" class="a">Getting Started with Arduino Hardware</a> example.</p><h3 class="title" id="d118e1682">Required Hardware<span id="arduino_wifi-3" class="anchor_target"></span></h3><p>To run this example you will need the following hardware:</p><div class="itemizedlist"><ul><li><p>Supported Arduino board</p></li><li><p>WiFi Shield / ESP8266</p></li><li><p>USB cable</p></li></ul></div><p>Note that Arduino MKR1000 has an on-board WiFi chip so no need to connect a WiFi Shield or ESP8266.</p><h3 class="title" id="d118e1700">Configuring WiFi hardware<span id="arduino_wifi-4" class="anchor_target"></span></h3><p>In
+ this task, you will configure the WiFi hardware. The WiFi functionality
+ can be used with Simulink Support Package for Arduino hardware by 
+either of the following:</p><p><strong class="emphasis bold">Arduino board with WiFi Shield</strong></p><p><strong class="emphasis bold">1.</strong> Connect the WiFi Shield on the Arduino board.</p><p><strong class="emphasis bold">2.</strong> Connect a USB cable from the PC to the Arduino board.</p><p>For more details on connecting the Arduino to WiFi Shield, refer to <a href="matlab:helpview(fullfile(codertarget.internal.arduinoert.getDocRoot,'ug','connect-arduino-wifi-shield-to-arduino.html'),'-helpbrowser')" target="_top">Connect Arduino WiFi Shield to Arduino Hardware</a> in the documentation.</p><p><strong class="emphasis bold">Arduino board with ESP8266</strong></p><p><strong class="emphasis bold">1.</strong> Connect the ESP8266 to the Arduino board.</p><p><strong class="emphasis bold">2.</strong> Connect a USB cable from the PC to the Arduino board.</p><p>For more details on connecting the Arduino to ESP8266, refer to <a href="matlab:helpview(fullfile(codertarget.internal.arduinoert.getDocRoot,'ug','connect-esp8266-to-arduino-hardware.html'),'-helpbrowser')" target="_top">Connect ESP8266 to Arduino Hardware</a> in the documentation.</p><p><strong class="emphasis bold">Arduino MKR1000 board</strong></p><p><strong class="emphasis bold">1.</strong> Connect a USB cable from the PC to the Arduino MKR1000 board.</p><p>The Arduino MKR1000 has an on-board WiFi chip. It can be used directly without any additional WiFi hardware.</p><h3 class="title" id="d118e1748">Configure Network Properties for Host Machine and WiFi hardware<span id="arduino_wifi-5" class="anchor_target"></span></h3><p>For configuring the IP Address for the host machine and the WiFi hardware refer the following sections :</p><p><a href="matlab:helpview(fullfile(codertarget.internal.arduinoert.getDocRoot,'ug','configure-network-settings-for-arduino-wifi-shield.html'),'-helpbrowser')" target="_top">Configure Network Settings for WiFi</a></p><h3 class="title" id="d118e1757">Task 1 - Configure the Model for Supported Arduino Hardware<span id="arduino_wifi-6" class="anchor_target"></span></h3><p>You will perform this task if your Arduino board is not Arduino Mega 2560 hardware.</p><p>In this task, you will configure the model for the supported Arduino board.</p><p><strong class="emphasis bold">1.</strong>  In your Simulink model, click <strong class="emphasis bold">Simulation &gt; Model Configuration Parameters</strong> to open <strong class="emphasis bold">Configuration Parameters</strong> dialog.</p><p><strong class="emphasis bold">2.</strong> Select the <strong class="emphasis bold">Hardware Implementation</strong> pane and select your required Arduino hardware from the <strong class="emphasis bold">Hardware board</strong> parameter list. Do not change any other settings.</p><p><strong class="emphasis bold">3.</strong> Click <strong class="emphasis bold">OK</strong>.</p><h3 class="title" id="d118e1792">Task 2 - Sending TCP/IP Data over WiFi using Arduino Hardware<span id="arduino_wifi-7" class="anchor_target"></span></h3><p>This
+ example shows how to use Simulink Support Package for Arduino hardware 
+to send TCP/IP messages over WiFi using an Arduino board.</p><p><strong class="emphasis bold">Models involved in the demo</strong></p><p><strong class="emphasis bold">1.</strong> Target model running on the Arduino hardware: <a href="matlab:arduinomega2560_wifitcpsend" target="_top">Arduino TCP/IP Send</a>.</p><p><strong class="emphasis bold">2.</strong> Simulink host model: <a href="matlab:arduinowifi_tcp_hostreceive" target="_top">TCP/IP Host Receive</a>.</p><p><strong class="emphasis bold">Run the Model configured for the target on the hardware</strong></p><p><strong class="emphasis bold">1.</strong> Open the <a href="matlab:arduinomega2560_wifitcpsend" target="_top">Arduino TCP/IP Send</a> model.</p><p><strong class="emphasis bold">2.</strong> Perform Task 1 if your Arduino board is not Arduino Mega 2560 hardware.</p><p><strong class="emphasis bold">3.</strong> In your Simulink model, click the <strong class="emphasis bold">Deploy to Hardware</strong> button on the toolbar.</p><p><strong class="emphasis bold">Run the host model to receive data from the target model</strong></p><p><strong class="emphasis bold">1.</strong> Open the <a href="matlab:arduinotcp_hostreceive" target="_top">TCP/IP Host Receive</a>
+ model. Double-click on the TCP/IP Receive block. Make sure that the IP 
+address and port number are matching the WiFi settings specified earlier
+ to ensure that the data is received from the correct target hardware.</p><p><strong class="emphasis bold">2.</strong>
+ In the Simulink host model, click the Run button. The scope should 
+display the data (a ramp signal and a pulse) being sent from the target 
+hardware.</p><div class="informalfigure"><div id="d118e1852" class="mediaobject"><p><img src="Page%20tuto_fichiers/arduino_wifi_01.png" alt=""></p></div></div><h3 class="title" id="d118e1855">Task 3 - Receiving TCP/IP Data over WiFi with Arduino Hardware<span id="arduino_wifi-9" class="anchor_target"></span></h3><p>This
+ task shows how to use Simulink Support Package for Arduino hardware to 
+receive TCP/IP messages over WiFi using an Arduino board.</p><p><strong class="emphasis bold">Models involved in the demo</strong></p><p><strong class="emphasis bold">1.</strong> Target model running on the Arduino hardware: <a href="matlab:arduinomega2560_wifitcpreceive" target="_top">Arduino TCP/IP Receive</a>.</p><p><strong class="emphasis bold">2.</strong> Simulink host model: <a href="matlab:arduinowifi_tcp_hostsend" target="_top">TCP/IP Host Send</a>.</p><p><strong class="emphasis bold">Run the model configured for the target on the hardware</strong></p><p><strong class="emphasis bold">1.</strong> Open the <a href="matlab:arduinomega2560_wifitcpreceive" target="_top">Arduino TCP/IP Receive</a> model.</p><p><strong class="emphasis bold">2.</strong> Perform Task 1 if your Arduino board is not Arduino Mega 2560 hardware.</p><p><strong class="emphasis bold">3.</strong> In your Simulink model, click the <strong class="emphasis bold">Deploy to Hardware</strong> button on the toolbar.</p><p><strong class="emphasis bold">Run the host model to send data to the target model</strong></p><p><strong class="emphasis bold">1.</strong> Open the <a href="matlab:arduinowifi_tcp_hostsend" target="_top">TCP/IP Host Send</a>
+ model. Double-click on the TCP/IP Send block. Make  sure that the IP 
+address and port number are matching the WiFi settings earlier specified
+ to ensure that the data is sent to the correct target hardware.</p><p><strong class="emphasis bold">2.</strong>
+ The target model running on Arduino board will receive data from TCP/IP
+ and send it back to the serial port for monitoring and debugging. You 
+can use a serial monitor or hyperterminal on the host machine to watch 
+the serial data coming back from the target.</p><p><strong class="emphasis bold">3.</strong> Note that the <strong class="emphasis bold">WiFi TCP /IP Receive block</strong>
+ is operating in blocking mode as Advanced &gt; Wait until data received
+ checkbox is checked. So when there is no incoming data you can see 
+print statements in serial monitor or hyperterminal are slower.</p><p><strong class="emphasis bold">4.</strong> In the Simulink host model, click the Run button to start running the host model.</p><p><strong class="emphasis bold">4.</strong>
+ At this point, TCP/IP data is sent from the host to the target and 
+serial data is sent back from the target to the host. You should be able
+ to see the print statements in serial monitor or hyperterminal as soon 
+as the target receives data i.e. no blocking.</p><div class="informalfigure"><div id="d118e1930" class="mediaobject"><p><img src="Page%20tuto_fichiers/arduino_wifi_02.png" alt=""></p></div></div><h3 class="title" id="d118e1933">Task 4 - Sending UDP Data over WiFi using Arduino Hardware<span id="arduino_wifi-11" class="anchor_target"></span></h3><p>This
+ example shows how to use Simulink Support Package for Arduino hardware 
+to send UDP messages over WiFi using an Arduino board.</p><p><strong class="emphasis bold">Models involved in the demo</strong></p><p><strong class="emphasis bold">1.</strong> Target model running on the Arduino hardware: <a href="matlab:arduinomega2560_wifiudpsend" target="_top">Arduino UDP Send</a>.</p><p><strong class="emphasis bold">2.</strong> Simulink host model: <a href="matlab:arduinoudp_hostreceive" target="_top">UDP Host receive</a>.</p><p><strong class="emphasis bold">Run the Model configured for the target on the hardware</strong></p><p><strong class="emphasis bold">1.</strong> Open the <a href="matlab:arduinomega2560_wifiudpsend" target="_top">Arduino UDP Send</a> model.</p><p><strong class="emphasis bold">2.</strong> Perform Task 1 if your Arduino board is not Arduino Mega 2560 hardware.</p><p><strong class="emphasis bold">3.</strong> In your Simulink model, click the <strong class="emphasis bold">Deploy to Hardware</strong> button on the toolbar.</p><p><strong class="emphasis bold">Run the host model to receive data from the target model</strong></p><p><strong class="emphasis bold">1.</strong> Open the <a href="matlab:arduinowifi_udp_hostreceive" target="_top">UDP Host receive</a>
+ model. Double-click on the UDP Receive block. Make sure that the port 
+number is matching the WiFi Shield settings specified earlier to ensure 
+that the data is received from the correct target hardware.</p><p><strong class="emphasis bold">2.</strong>
+ In the Simulink host model, click the Run button. The scope should 
+display the data (a ramp signal and a pulse) being sent from the target 
+hardware.</p><div class="informalfigure"><div id="d118e1993" class="mediaobject"><p><img src="Page%20tuto_fichiers/arduino_wifi_03.png" alt=""></p></div></div><h3 class="title" id="d118e1996">Task 5 - Receiving UDP Data over WiFi using Arduino Hardware<span id="arduino_wifi-13" class="anchor_target"></span></h3><p>This
+ task shows how to use Simulink Support Package for Arduino hardware to 
+receive UDP messages over WiFi using an Arduino board.</p><p><strong class="emphasis bold">Models involved in the demo</strong></p><p><strong class="emphasis bold">1.</strong> Target model running on the Arduino Mega 2560: <a href="matlab:arduinomega2560_wifiudpreceive" target="_top">Arduino Mega 2560 UDP Receive</a>.</p><p><strong class="emphasis bold">2.</strong> Simulink host model: <a href="matlab:arduinowifi_udp_hostsend" target="_top">UDP Host Send</a>.</p><p><strong class="emphasis bold">Run the model configured for the target on the hardware</strong></p><p><strong class="emphasis bold">1.</strong> Open the <a href="matlab:arduinomega2560_wifiudpreceive" target="_top">Arduino Mega 2560 UDP Receive</a> model.</p><p><strong class="emphasis bold">2.</strong> Perform Task 1 if your Arduino board is not Arduino Mega 2560 hardware.</p><p><strong class="emphasis bold">3.</strong> In your Simulink model, click the <strong class="emphasis bold">Run</strong> button on the toolbar to run the model in External mode.</p><p><strong class="emphasis bold">Run the host model to send data to the target model</strong></p><p><strong class="emphasis bold">1.</strong> Open the <a href="matlab:arduinowifi_udp_hostsend" target="_top">UDP Host Send</a>
+ model. Double-click on the UDP Send block. Make sure that the IP 
+address and port number are matching the WiFi settings specified earlier
+ to ensure that the data is sent to the correct target hardware.</p><p><strong class="emphasis bold">2.</strong>
+ The target model running on the Arduino hardware will receive data from
+ UDP. In External mode you can see the data and size displayed on the 
+Display blocks. Initially when no data is received Data and Size both 
+are 0.</p><p><strong class="emphasis bold">3.</strong> In the Simulink 
+host model, click the Run button to start running the host model. Note 
+that this model sends an array of int16 values.</p><p><strong class="emphasis bold">4.</strong>
+ At this point, UDP data is sent from the host to the target. You can 
+see that the Data and Size output values changing corresponding to the 
+received data.</p><div class="informalfigure"><div id="d118e2064" class="mediaobject"><p><img src="Page%20tuto_fichiers/arduino_wifi_04.png" alt=""></p></div></div><h3 class="title" id="d118e2067">Summary<span id="arduino_wifi-15" class="anchor_target"></span></h3><p>This
+ example showed you how to use Simulink Support Package for Arduino 
+hardware to send TCP/IP or UDP messages over WiFi to a remote host and 
+to receive TCP/IP or UDP messages over WiFi from a remote host using an 
+Arduino board.</p></div></section>
+</div></section>
+<div class="modal fade" id="matlab-command-dialog" tabindex="-1" role="dialog" aria-labelledby="matlabCommandDialogLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+        <h4 class="modal-title">MATLAB Command</h4>
+      </div>
+      <div class="modal-body" id="dialog-body">
+        <p>You clicked a link that corresponds to this MATLAB command: </p>
+        <pre id="dialog-matlab-command"></pre>
+        <p>Run the command by entering it in the MATLAB Command Window.
+        Web browsers do not support MATLAB commands.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn_secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div><div xmlns="http://www.w3.org/1999/xhtml" class="clearfix"></div>
+<div xmlns="http://www.w3.org/1999/xhtml" class="feedbackblock">Was this topic helpful?
+<input value="Yes" onclick="openFeedbackWindow('https://www.mathworks.com/programs/bounce_hub_help.html?s_cid=Help_Topic_Survey&amp;surveyParams='+document.location.href+'-YES-R2017b');" type="button">
+<input value="No" onclick="openFeedbackWindow('https://www.mathworks.com/programs/bounce_hub_help.html?s_cid=Help_Topic_Survey&amp;surveyParams='+document.location.href+'-NO-R2017b');" type="button">
+</div>
+<!--Last updated: Fri Sep 15 17:00:45 EDT 2017-->
+
+  
+
+
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+ 
+
+
+<div id="location_content" style="display:none;"></div>
+
+
+<div class="modal fade" id="country-unselected" translate="no">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+        <object type="image/svg+xml" class="mw_logo" alt="MathWorks" data="Page%20tuto_fichiers/pic-header-mathworks-logo2.svg" width="167px">
+          <img alt="MathWorks" src="Page%20tuto_fichiers/pic-header-mathworks-logo.png" width="167px">
+        </object>
+      </div>
+      <div class="modal-body">
+        <div class="row add_margin_40">
+          <div class="col-xs-12">
+            <h1 class="icon-globe icon_color_secondary">Select Your Country</h1>
+            <p>Choose your country to get translated content where 
+available and see local events and offers. Based on your location, we 
+recommend that you select: <strong class="text_location"></strong>.</p>
+            <a href="#" id="domain_select_button" class="btn btn_secondary" data-dismiss="modal"></a>
+          </div>
+        </div>
+        <p>You can also select a location from the following list:</p>
+        <div class="row add_margin_30">
+          <div class="col-sm-4 col-md-3">
+            <h3 class="add_bottom_rule">Americas</h3>
+            <ul class="list-unstyled">
+              <li><a href="https://www.mathworks.com/help/supportpkg/arduino/examples/getting-started-with-wifi-on-arduino-hardware.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="canada_select">Canada</a> (English)</li>
+              <li><a href="https://www.mathworks.com/help/supportpkg/arduino/examples/getting-started-with-wifi-on-arduino-hardware.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="united_states_select">United States</a> (English)</li>
+            </ul>
+          </div>
+          <div class="col-sm-4 col-md-6">
+            <h3 class="add_bottom_rule">Europe</h3>
+            <div class="row">
+              <div class="col-xs-6 col-sm-12 col-md-6">
+                <ul class="list-unstyled add_margin_0_sm">
+                  <li><a href="https://nl.mathworks.com/help/supportpkg/arduino/examples/getting-started-with-wifi-on-arduino-hardware.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="belgium_select">Belgium</a> (English)</li>
+                  <li><a href="https://se.mathworks.com/help/supportpkg/arduino/examples/getting-started-with-wifi-on-arduino-hardware.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="denmark_select">Denmark</a> (English)</li>
+                  <li><a href="https://de.mathworks.com/help/supportpkg/arduino/examples/getting-started-with-wifi-on-arduino-hardware.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="deutschland_select">Deutschland</a> (Deutsch)</li>
+                  <li><a href="https://es.mathworks.com/help/supportpkg/arduino/examples/getting-started-with-wifi-on-arduino-hardware.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="espana_select">España</a> (Español)</li>
+                  <li><a href="https://se.mathworks.com/help/supportpkg/arduino/examples/getting-started-with-wifi-on-arduino-hardware.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="finland_select">Finland</a> (English)</li>
+                  <li><a href="https://fr.mathworks.com/help/supportpkg/arduino/examples/getting-started-with-wifi-on-arduino-hardware.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="france_select">France</a> (Français)</li>
+                  <li><a href="https://uk.mathworks.com/help/supportpkg/arduino/examples/getting-started-with-wifi-on-arduino-hardware.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="ireland_select">Ireland</a> (English)</li>
+                  <li><a href="https://it.mathworks.com/help/supportpkg/arduino/examples/getting-started-with-wifi-on-arduino-hardware.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="italia_select">Italia</a> (Italiano)</li>
+                  <li><a href="https://nl.mathworks.com/help/supportpkg/arduino/examples/getting-started-with-wifi-on-arduino-hardware.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="luxembourg_select">Luxembourg</a> (English)</li>
+                </ul>
+              </div>
+              <div class="col-xs-6 col-sm-12 col-md-6">
+                <ul class="list-unstyled">
+                  <li><a href="https://nl.mathworks.com/help/supportpkg/arduino/examples/getting-started-with-wifi-on-arduino-hardware.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="netherlands_select">Netherlands</a> (English)</li>
+                  <li><a href="https://se.mathworks.com/help/supportpkg/arduino/examples/getting-started-with-wifi-on-arduino-hardware.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="norway_select">Norway</a> (English)</li>
+                  <li><a href="https://de.mathworks.com/help/supportpkg/arduino/examples/getting-started-with-wifi-on-arduino-hardware.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="osterreich_select">Österreich</a> (Deutsch)</li>
+                  <li><a href="https://www.mathworks.com/help/supportpkg/arduino/examples/getting-started-with-wifi-on-arduino-hardware.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="portugal_select">Portugal</a> (English)</li>
+                  <li><a href="https://se.mathworks.com/help/supportpkg/arduino/examples/getting-started-with-wifi-on-arduino-hardware.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="sweden_select">Sweden</a> (English)</li>
+                  <li>Switzerland
+                    <ul class="list-unstyled add_indent_20">
+                      <li><a href="https://ch.mathworks.com/help/supportpkg/arduino/examples/getting-started-with-wifi-on-arduino-hardware.html?action=changeCountry&amp;s_tid=gn_loc_drop" id="swiss_german" class="switzerland_select">Deutsch</a></li>
+                      <li><a href="https://ch.mathworks.com/help/supportpkg/arduino/examples/getting-started-with-wifi-on-arduino-hardware.html?action=changeCountry&amp;s_tid=gn_loc_drop" id="swiss_english" class="switzerland_select">English</a></li>
+                      <li><a href="https://ch.mathworks.com/help/supportpkg/arduino/examples/getting-started-with-wifi-on-arduino-hardware.html?action=changeCountry&amp;s_tid=gn_loc_drop" id="swiss_french">Français</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="https://uk.mathworks.com/help/supportpkg/arduino/examples/getting-started-with-wifi-on-arduino-hardware.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="united_kingdom_select">United Kingdom</a> (English)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4 col-md-3">
+            <h3 class="add_bottom_rule">Asia Pacific</h3>
+            <ul class="list-unstyled">
+              <li><a href="https://au.mathworks.com/help/supportpkg/arduino/examples/getting-started-with-wifi-on-arduino-hardware.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="australia_select">Australia</a> (English)</li>
+              <li><a href="https://in.mathworks.com/help/supportpkg/arduino/examples/getting-started-with-wifi-on-arduino-hardware.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="india_select">India</a> (English)</li>
+              <li><a href="https://au.mathworks.com/help/supportpkg/arduino/examples/getting-started-with-wifi-on-arduino-hardware.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="new_zealand_select">New Zealand</a> (English)</li>
+              <li><a href="https://cn.mathworks.com/help/supportpkg/arduino/examples/getting-started-with-wifi-on-arduino-hardware.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="china_select">中国</a> (简体中文)</li>
+              <li><a href="https://jp.mathworks.com/help/supportpkg/arduino/examples/getting-started-with-wifi-on-arduino-hardware.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="japan_select">日本</a> (日本語)</li>
+              <li><a href="https://kr.mathworks.com/help/supportpkg/arduino/examples/getting-started-with-wifi-on-arduino-hardware.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="korea_select">한국</a> (한국어)</li>
+            </ul>
+          </div>
+        </div>
+        <p class="text-center"><strong><a href="https://nl.mathworks.com/company/worldwide.html">See all countries</a></strong></p>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MOBILE CTA - Begin -->
+    <div class="cta_container_mobile visible-sm visible-xs">
+      <div class="container-fluid">      
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="cta_box">
+<ul class="list-inline">
+<li class="cta_item cta_item_general"><a href="https://nl.mathworks.com/programs/bounce/doc_tryit.html" class="icon-download">Trial Software</a></li>
+<li class="cta_item cta_item_general"><a href="https://nl.mathworks.com/support/web_downloads_bounce.html?s_cid=1008_degr_docdn_270055" class="icon-download">Product Updates</a></li>
+</ul>
+</div> 
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- MOBILE CTA - End -->
+
+        <!-- BODY TRAIL - Begin -->
+        <div class="body_trail_container">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-xs-12">
+                <div class="row"><div class="col-xs-12 col-sm-3"><h5><a href="https://nl.mathworks.com/help/supportpkg/arduino/index.html?s_cid=doc_ftr">Simulink Support Package for Arduino Hardware Documentation</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="https://nl.mathworks.com/help/supportpkg/arduino/index.html?s_cid=doc_ftr">Documentation Home</a></li>
+<li><a href="https://nl.mathworks.com/help/supportpkg/arduino/blocklist.html?s_cid=doc_ftr">Blocks</a></li>
+<li><a href="https://nl.mathworks.com/help/supportpkg/arduino/release-notes.html?s_cid=doc_ftr">Release Notes</a></li>
+</ul>
+</div>
+<div class="col-xs-12 col-sm-3"><h5><a href="https://nl.mathworks.com/help/index.html?s_cid=doc_ftr">Other Documentation</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="https://nl.mathworks.com/help/simulink/index.html?s_cid=doc_ftr" class="a">Simulink</a></li><li><a href="https://nl.mathworks.com/help/supportpkg/arduinoio/index.html?s_cid=doc_ftr" class="a">MATLAB Support Package for Arduino Hardware</a></li><li><a href="https://nl.mathworks.com/help/supportpkg/raspberrypi/index.html?s_cid=doc_ftr" class="a">Simulink Support Package for Raspberry Pi Hardware</a></li><li><a href="https://nl.mathworks.com/help/index.html?s_cid=doc_ftr">Documentation Home</a></li></ul>
+</div>
+<div class="col-xs-12 col-sm-3"><h5><a href="https://nl.mathworks.com/support/?s_cid=doc_ftr">Support</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="https://nl.mathworks.com/matlabcentral/answers/index?s_cid=doc_ftr">MATLAB Answers</a></li><li><a href="https://nl.mathworks.com/support/install-matlab.html?s_cid=doc_ftr">Installation Help</a></li><li><a href="https://nl.mathworks.com/support/bugreports/?s_cid=doc_ftr">Bug Reports</a></li><li><a href="https://nl.mathworks.com/products/availability/?s_cid=doc_ftr">Product Requirements</a></li><li><a href="https://nl.mathworks.com/downloads/?s_cid=doc_ftr">Software Downloads</a></li></ul>
+</div>
+<div class="col-xs-12 col-sm-3">
+<div class="panel panel_color_transparent panel_color_fill">
+<div class="panel-body"> <img src="Page%20tuto_fichiers/bg-trial-arrow_02.png" class="add_margin_5">
+<h4>Try MATLAB, Simulink, and Other Products</h4>
+<a href="https://nl.mathworks.com/programs/trials/trial_request.html?prodcode=ML&amp;s_iid=doc_trial_ML_footer" class="icon-chevron">Get trial now </a>
+</div>
+</div>
+</div>
+</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- BODY TRAIL - End -->
+
+    <footer id="footer" class="bs-footer">
+        <!-- FAT FOOTER - Begin --> 
+        <div class="container-fluid">
+          <div class="fat_footer_container">
+            <div class="execmatlabweb"> <!--Requried for Doc Test -->
+<div class="row">
+<div class="col-xs-12 col-md-12 col-lg-9 col-lg-push-3 add_margin_20">
+<div class="row">
+<div class="col-xs-12 col-sm-2">
+<h5>Explore Products</h5>
+<ul class="list-unstyled">
+<li><a href="https://nl.mathworks.com/products/matlab.html?s_tid=hp_ff_p_matlab">MATLAB</a></li>
+<li><a href="https://nl.mathworks.com/products/simulink.html?s_tid=hp_ff_p_simulink">Simulink</a></li>
+<li><a href="https://nl.mathworks.com/academia/student_version.html?s_tid=hp_ff_p_student">Student Software</a></li>
+<li><a href="https://nl.mathworks.com/hardware-support/home.html?s_tid=hp_ff_p_hwsupport">Hardware Support</a></li>
+<li><a href="https://nl.mathworks.com/matlabcentral/fileexchange/?s_tid=hp_ff_p_fx">File Exchange</a></li>
+</ul>
+</div>
+<div class="col-xs-12 col-sm-2">
+<h5>Try or Buy</h5>
+<ul class="list-unstyled">
+<li><a href="https://nl.mathworks.com/downloads/web_downloads/?s_iid=hp_ff_t_downloads">Downloads</a></li>
+<li><a href="https://nl.mathworks.com/programs/trials/trial_request.html?s_iid=hp_ff_p_trial">Trial Software</a></li>
+<li><a href="https://nl.mathworks.com/company/aboutus/contact_us/contact_sales.html?s_iid=hp_ff_t_sales">Contact Sales</a></li>
+<li><a href="https://nl.mathworks.com/pricing-licensing.html?s_iid=hp_ff_t_pricing">Pricing and Licensing</a></li>
+</ul>
+</div>
+<div class="col-xs-12 col-sm-2">
+<h5>Learn to Use</h5>
+<ul class="list-unstyled">
+<li><a href="https://nl.mathworks.com/help/?s_tid=hp_ff_l_doc">Documentation</a></li>
+<li><a href="https://nl.mathworks.com/support/learn-with-matlab-tutorials.html?s_tid=hp_ff_l_tutorials">Tutorials</a></li>
+<li><a href="https://nl.mathworks.com/examples/?s_tid=hp_ff_l_examples">Examples </a></li>
+<li><a href="https://nl.mathworks.com/videos.html?s_tid=hp_ff_l_videos">Videos and Webinars</a></li>
+<li><a href="https://nl.mathworks.com/services/training.html?s_tid=hp_ff_l_training">Training</a></li>
+</ul>
+</div>
+<div class="clearfix" id="offcanvas_clearfix" style="display:none"></div>
+<div class="col-xs-12 col-sm-2">
+<h5>Get Support</h5>
+<ul class="list-unstyled">
+<li><a href="https://nl.mathworks.com/support/install-matlab.html?s_tid=hp_ff_s_install">Installation Help</a></li>
+<li><a href="https://nl.mathworks.com/matlabcentral/answers/?s_tid=hp_ff_s_answers">Answers </a></li>
+<li><a href="https://nl.mathworks.com/services/consulting.html?s_tid=hp_ff_s_consulting">Consulting</a></li>
+<li><a href="http://status.mathworks.com/?s_tid=hp_ff_s_application">Application Status</a></li>
+<li><a href="https://nl.mathworks.com/licensecenter/?s_tid=hp_ff_s_license">License Center</a></li>
+</ul>
+</div>
+<div class="col-xs-12 col-sm-2">
+<h5>About MathWorks</h5>
+<ul class="list-unstyled">
+<li><a href="https://nl.mathworks.com/company/jobs/opportunities/?s_tid=hp_ff_a_careers">Careers</a></li>
+<li><a href="https://nl.mathworks.com/company/newsroom.html?s_tid=hp_ff_a_newsroom">Newsroom</a></li>
+<li><a href="https://nl.mathworks.com/company/aboutus/soc_mission.html?s_tid=hp_ff_a_socialmission">Social Mission</a></li>
+<li><a href="https://nl.mathworks.com/company.html?s_tid=hp_ff_a_company">About MathWorks</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-xs-12 col-md-12 col-lg-3 col-lg-pull-9">
+<h4 class="add_font_futura_medium add_margin_0"><span translate="no">MathWorks<span translate="no"></span></span></h4>
+<p><em>Accelerating the pace of engineering and science</em></p>
+<p>MathWorks is the leading developer of mathematical computing software for engineers and scientists.</p>
+<p><a href="https://nl.mathworks.com/discovery.html?s_tid=all_disc_mw_ff">Discover...</a></p>
+</div>
+</div>
+</div>
+          </div>
+        </div>
+        <!-- FAT FOOTER - End -->
+      <div class="container-fluid">
+       <div class="footer" translate="no">
+<div class="row">
+<div class="col-xs-12 col-lg-9">
+<ul class="countrynav" id="countrynav">
+<li class="footernav_country">
+<a href="javascript:void(0);" data-toggle="modal" data-target="#country-unselected">
+<span class="icon-globe icon_color_quinary icon_16"></span>Benelux
+</a>
+</li>
+</ul>
+<div class="clearfix"></div>
+<ul class="footernav">
+<li class="footernav_patents"><a href="https://nl.mathworks.com/company/aboutus/policies_statements/patents.html?s_tid=gf_pat">Patents</a></li>
+<li class="footernav_trademarks"><a href="https://nl.mathworks.com/company/aboutus/policies_statements/trademarks.html?s_tid=gf_trd">Trademarks</a></li>
+<li class="footernav_privacy"><a href="https://nl.mathworks.com/company/aboutus/policies_statements.html?s_tid=gf_priv">Privacy Policy</a></li>
+<li class="footernav_piracy"><a href="https://nl.mathworks.com/company/aboutus/policies_statements/piracy.html?s_tid=gf_pir">Preventing Piracy</a></li>
+</ul>
+<div class="clearfix"></div>
+<div class="clearfix"></div>
+<p class="copyright" translate="no">© 1994-2017 The MathWorks, Inc.</p>
+</div>
+<div class="clearfix visible-sm add_margin_10"></div>
+<div class="col-xs-12 col-lg-3">
+<div class="social_media">
+<ul class="social_media_icons">
+<li>
+<a href="http://www.facebook.com/MATLAB" target="_blank" class="svg_link">
+<img src="Page%20tuto_fichiers/ico-facebook.svg" alt="Facebook" class="ico_facebook" style="display: none !important;">
+</a>
+</li>
+<li>
+<a href="http://www.twitter.com/MATLAB" target="_blank" class="svg_link">
+<img src="Page%20tuto_fichiers/ico-twitter.svg" alt="Twitter" class="ico_twitter" style="display: none !important;">
+</a>
+</li>
+<li>
+<a href="https://plus.google.com/117177960465154322866?prsrc=3" target="_blank" class="svg_link">
+<img src="Page%20tuto_fichiers/ico-google-plus.svg" alt="Google+" class="ico_google" style="display: none !important;">
+</a>
+</li>
+<li>
+<a href="http://www.linkedin.com/company/the-mathworks_2" target="_blank" class="svg_link">
+<img src="Page%20tuto_fichiers/ico-linkedin.svg" alt="LinkedIn" class="ico_linkedin" style="display: none !important;">
+</a>
+</li>
+<li>
+<a href="https://nl.mathworks.com/company/rss.html" class="svg_link">
+<img src="Page%20tuto_fichiers/ico-rss.svg" alt="RSS" class="ico_rss">
+</a>
+</li>
+</ul>
+<div class="clearfix"></div>
+<p><em>Join the conversation</em></p>
+</div>
+</div>
+</div>
+</div>
+<!-- BEGIN Adobe DTM -->
+<script type="text/javascript">
+try {
+_satellite.pageBottom();
+} catch (e) {
+//something went wrong
+}
+</script>
+<!-- END Adobe DTM -->
+      </div>
+    </footer>
+
+  </div>
+
+
+
+<a class="btn btn_color_mediumgray" id="go-top" style="display: inline;"><span class="icon-arrow-open-up icon_24"></span></a></body></html>

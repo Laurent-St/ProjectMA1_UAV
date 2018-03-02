@@ -1,0 +1,11 @@
+rtiostream_utils.o: \
+ D:/MATLAB~2/toolbox/coder/rtiostream/src/utils/rtiostream_utils.c \
+ D:/MATLAB~2/toolbox/coder/rtiostream/src/utils/rtiostream_utils.h \
+ C:/Users/admin/Desktop/UGV_wifi/Code_perso/Matlab_v2/arduinodue_wifiudpreceive_ert_rtw/rtwtypes.h \
+ D:/MATLAB~2/rtw/c/src/rtiostream.h
+
+D:/MATLAB~2/toolbox/coder/rtiostream/src/utils/rtiostream_utils.h:
+
+C:/Users/admin/Desktop/UGV_wifi/Code_perso/Matlab_v2/arduinodue_wifiudpreceive_ert_rtw/rtwtypes.h:
+
+D:/MATLAB~2/rtw/c/src/rtiostream.h:

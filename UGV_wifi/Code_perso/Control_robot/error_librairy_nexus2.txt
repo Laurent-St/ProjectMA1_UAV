@@ -1,0 +1,181 @@
+In file included from C:\Users\admin\AppData\Local\Arduino15\packages\arduino\hardware\sam\1.6.11\cores\arduino/Arduino.h:201:0,
+
+                 from sketch\test_librairy.ino.cpp:1:
+
+C:\Users\admin\Documents\Arduino\libraries\PinChangeInt/PinChangeInt.h: In constructor 'PCintPort::PCintPort(int, volatile uint8_t&)':
+
+C:\Users\admin\AppData\Local\Arduino15\packages\arduino\hardware\sam\1.6.11\variants\arduino_due_x/variant.h:67:44: error: base operand of '->' is not a pointer
+
+ #define portInputRegister(port)    ( &(port->PIO_PDSR) )
+
+                                            ^
+
+C:\Users\admin\Documents\Arduino\libraries\PinChangeInt/PinChangeInt.h:101:21: note: in expansion of macro 'portInputRegister'
+
+       portInputReg(*portInputRegister(index + 2)),
+
+                     ^
+
+In file included from C:\Users\admin\AppData\Local\Arduino15\packages\arduino\hardware\sam\1.6.11\system/CMSIS/Device/ATMEL/sam3xa/include/sam3xa.h:44:0,
+
+                 from C:\Users\admin\AppData\Local\Arduino15\packages\arduino\hardware\sam\1.6.11\system/CMSIS/Device/ATMEL/sam3.h:59,
+
+                 from C:\Users\admin\AppData\Local\Arduino15\packages\arduino\hardware\sam\1.6.11\system/CMSIS/Device/ATMEL/sam.h:198,
+
+                 from C:\Users\admin\AppData\Local\Arduino15\packages\arduino\hardware\sam\1.6.11\system/libsam/chip.h:25,
+
+                 from C:\Users\admin\AppData\Local\Arduino15\packages\arduino\hardware\sam\1.6.11\cores\arduino/Arduino.h:42,
+
+                 from sketch\test_librairy.ino.cpp:1:
+
+C:\Users\admin\Documents\Arduino\libraries\MotorWheel/MotorWheel.h: At global scope:
+
+C:\Users\admin\AppData\Local\Arduino15\packages\arduino\hardware\sam\1.6.11\system/CMSIS/Device/ATMEL/sam3xa/include/sam3x8e.h:466:31: error: expected ')' before numeric constant
+
+ #define PWM        ((Pwm    *)0x40094000U) /**< \brief (PWM       ) Base Address */
+
+                               ^
+
+C:\Users\admin\Documents\Arduino\libraries\MotorWheel/MotorWheel.h:253:35: note: in expansion of macro 'PWM'
+
+  unsigned int runPWM(unsigned int PWM,bool dir,bool saveDir=true);
+
+                                   ^
+
+C:\Users\admin\AppData\Local\Arduino15\packages\arduino\hardware\sam\1.6.11\system/CMSIS/Device/ATMEL/sam3xa/include/sam3x8e.h:466:31: error: expected ')' before numeric constant
+
+ #define PWM        ((Pwm    *)0x40094000U) /**< \brief (PWM       ) Base Address */
+
+                               ^
+
+C:\Users\admin\Documents\Arduino\libraries\MotorWheel/MotorWheel.h:253:35: note: in expansion of macro 'PWM'
+
+  unsigned int runPWM(unsigned int PWM,bool dir,bool saveDir=true);
+
+                                   ^
+
+C:\Users\admin\AppData\Local\Arduino15\packages\arduino\hardware\sam\1.6.11\system/CMSIS/Device/ATMEL/sam3xa/include/sam3x8e.h:466:30: error: expected ';' at end of member declaration
+
+ #define PWM        ((Pwm    *)0x40094000U) /**< \brief (PWM       ) Base Address */
+
+                              ^
+
+C:\Users\admin\Documents\Arduino\libraries\MotorWheel/MotorWheel.h:253:35: note: in expansion of macro 'PWM'
+
+  unsigned int runPWM(unsigned int PWM,bool dir,bool saveDir=true);
+
+                                   ^
+
+C:\Users\admin\AppData\Local\Arduino15\packages\arduino\hardware\sam\1.6.11\system/CMSIS/Device/ATMEL/sam3xa/include/sam3x8e.h:466:31: error: expected unqualified-id before numeric constant
+
+ #define PWM        ((Pwm    *)0x40094000U) /**< \brief (PWM       ) Base Address */
+
+                               ^
+
+C:\Users\admin\Documents\Arduino\libraries\MotorWheel/MotorWheel.h:253:35: note: in expansion of macro 'PWM'
+
+  unsigned int runPWM(unsigned int PWM,bool dir,bool saveDir=true);
+
+                                   ^
+
+C:\Users\admin\AppData\Local\Arduino15\packages\arduino\hardware\sam\1.6.11\system/CMSIS/Device/ATMEL/sam3xa/include/sam3x8e.h:466:31: error: expected ')' before numeric constant
+
+ #define PWM        ((Pwm    *)0x40094000U) /**< \brief (PWM       ) Base Address */
+
+                               ^
+
+C:\Users\admin\Documents\Arduino\libraries\MotorWheel/MotorWheel.h:255:39: note: in expansion of macro 'PWM'
+
+  unsigned int advancePWM(unsigned int PWM);
+
+                                       ^
+
+C:\Users\admin\AppData\Local\Arduino15\packages\arduino\hardware\sam\1.6.11\system/CMSIS/Device/ATMEL/sam3xa/include/sam3x8e.h:466:31: error: expected ')' before numeric constant
+
+ #define PWM        ((Pwm    *)0x40094000U) /**< \brief (PWM       ) Base Address */
+
+                               ^
+
+C:\Users\admin\Documents\Arduino\libraries\MotorWheel/MotorWheel.h:255:39: note: in expansion of macro 'PWM'
+
+  unsigned int advancePWM(unsigned int PWM);
+
+                                       ^
+
+C:\Users\admin\AppData\Local\Arduino15\packages\arduino\hardware\sam\1.6.11\system/CMSIS/Device/ATMEL/sam3xa/include/sam3x8e.h:466:30: error: expected ';' at end of member declaration
+
+ #define PWM        ((Pwm    *)0x40094000U) /**< \brief (PWM       ) Base Address */
+
+                              ^
+
+C:\Users\admin\Documents\Arduino\libraries\MotorWheel/MotorWheel.h:255:39: note: in expansion of macro 'PWM'
+
+  unsigned int advancePWM(unsigned int PWM);
+
+                                       ^
+
+C:\Users\admin\AppData\Local\Arduino15\packages\arduino\hardware\sam\1.6.11\system/CMSIS/Device/ATMEL/sam3xa/include/sam3x8e.h:466:31: error: expected unqualified-id before numeric constant
+
+ #define PWM        ((Pwm    *)0x40094000U) /**< \brief (PWM       ) Base Address */
+
+                               ^
+
+C:\Users\admin\Documents\Arduino\libraries\MotorWheel/MotorWheel.h:255:39: note: in expansion of macro 'PWM'
+
+  unsigned int advancePWM(unsigned int PWM);
+
+                                       ^
+
+C:\Users\admin\AppData\Local\Arduino15\packages\arduino\hardware\sam\1.6.11\system/CMSIS/Device/ATMEL/sam3xa/include/sam3x8e.h:466:31: error: expected ')' before numeric constant
+
+ #define PWM        ((Pwm    *)0x40094000U) /**< \brief (PWM       ) Base Address */
+
+                               ^
+
+C:\Users\admin\Documents\Arduino\libraries\MotorWheel/MotorWheel.h:256:39: note: in expansion of macro 'PWM'
+
+  unsigned int backoffPWM(unsigned int PWM);
+
+                                       ^
+
+C:\Users\admin\AppData\Local\Arduino15\packages\arduino\hardware\sam\1.6.11\system/CMSIS/Device/ATMEL/sam3xa/include/sam3x8e.h:466:31: error: expected ')' before numeric constant
+
+ #define PWM        ((Pwm    *)0x40094000U) /**< \brief (PWM       ) Base Address */
+
+                               ^
+
+C:\Users\admin\Documents\Arduino\libraries\MotorWheel/MotorWheel.h:256:39: note: in expansion of macro 'PWM'
+
+  unsigned int backoffPWM(unsigned int PWM);
+
+                                       ^
+
+C:\Users\admin\AppData\Local\Arduino15\packages\arduino\hardware\sam\1.6.11\system/CMSIS/Device/ATMEL/sam3xa/include/sam3x8e.h:466:30: error: expected ';' at end of member declaration
+
+ #define PWM        ((Pwm    *)0x40094000U) /**< \brief (PWM       ) Base Address */
+
+                              ^
+
+C:\Users\admin\Documents\Arduino\libraries\MotorWheel/MotorWheel.h:256:39: note: in expansion of macro 'PWM'
+
+  unsigned int backoffPWM(unsigned int PWM);
+
+                                       ^
+
+C:\Users\admin\AppData\Local\Arduino15\packages\arduino\hardware\sam\1.6.11\system/CMSIS/Device/ATMEL/sam3xa/include/sam3x8e.h:466:31: error: expected unqualified-id before numeric constant
+
+ #define PWM        ((Pwm    *)0x40094000U) /**< \brief (PWM       ) Base Address */
+
+                               ^
+
+C:\Users\admin\Documents\Arduino\libraries\MotorWheel/MotorWheel.h:256:39: note: in expansion of macro 'PWM'
+
+  unsigned int backoffPWM(unsigned int PWM);
+
+                                       ^
+
+Plusieurs bibliothèque trouvées pour "Wire.h"
+Utilisé : C:\Users\admin\AppData\Local\Arduino15\packages\arduino\hardware\sam\1.6.11\libraries\Wire
+Non utilisé : C:\Users\admin\Documents\Arduino\libraries\Wire
+exit status 1
+Erreur de compilation pour la carte Arduino Due (Programming Port)

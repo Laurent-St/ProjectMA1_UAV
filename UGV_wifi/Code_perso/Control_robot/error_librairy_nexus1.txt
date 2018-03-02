@@ -1,0 +1,13 @@
+C:\Users\admin\Documents\Arduino\libraries\EEPROM\EEPROM.cpp:24:24: fatal error: avr/eeprom.h: No such file or directory
+
+ #include <avr/eeprom.h>
+
+                        ^
+
+compilation terminated.
+
+Plusieurs bibliothèque trouvées pour "Wire.h"
+Utilisé : C:\Users\admin\AppData\Local\Arduino15\packages\arduino\hardware\sam\1.6.11\libraries\Wire
+Non utilisé : C:\Users\admin\Documents\Arduino\libraries\Wire
+exit status 1
+Erreur de compilation pour la carte Arduino Due (Programming Port)

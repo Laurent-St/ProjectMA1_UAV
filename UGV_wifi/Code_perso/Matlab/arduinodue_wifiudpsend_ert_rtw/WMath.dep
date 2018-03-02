@@ -1,0 +1,5 @@
+WMath.o: \
+ C:/MATLAB/SupportPackages/R2016a/arduino-1.6.1/hardware/arduino/sam/cores/arduino/WMath.cpp \
+ C:/MATLAB/SupportPackages/R2016a/arduino-1.6.1/hardware/arduino/sam/cores/arduino/WMath.h
+
+C:/MATLAB/SupportPackages/R2016a/arduino-1.6.1/hardware/arduino/sam/cores/arduino/WMath.h:

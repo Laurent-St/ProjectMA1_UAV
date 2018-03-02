@@ -1,0 +1,5 @@
+itoa.o: \
+ C:/ProgramData/MATLAB/SupportPackages/R2017b/3P.instrset/arduinoide.instrset/idepkgs/packages/arduino/hardware/sam/1.6.11/cores/arduino/itoa.c \
+ C:/ProgramData/MATLAB/SupportPackages/R2017b/3P.instrset/arduinoide.instrset/idepkgs/packages/arduino/hardware/sam/1.6.11/cores/arduino/itoa.h
+
+C:/ProgramData/MATLAB/SupportPackages/R2017b/3P.instrset/arduinoide.instrset/idepkgs/packages/arduino/hardware/sam/1.6.11/cores/arduino/itoa.h:

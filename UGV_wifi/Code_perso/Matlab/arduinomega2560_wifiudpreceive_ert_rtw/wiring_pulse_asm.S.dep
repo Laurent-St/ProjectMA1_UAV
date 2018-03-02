@@ -1,0 +1,2 @@
+wiring_pulse_asm.S.o: \
+ C:/ProgramData/MATLAB/SupportPackages/R2017b/3P.instrset/arduinoide.instrset/idepkgs/packages/arduino/hardware/sam/1.6.11/cores/arduino/wiring_pulse_asm.S

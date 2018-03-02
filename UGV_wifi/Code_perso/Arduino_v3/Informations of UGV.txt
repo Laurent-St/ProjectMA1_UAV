@@ -1,0 +1,2 @@
+Processor: ATmega328
+Speed of processor: up to 20 MIPS throughput at 20MHz

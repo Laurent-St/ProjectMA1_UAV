@@ -1,0 +1,54 @@
+To check the code generation report:
+- Simulink > Code > C/C++ Code > Code Generation Report > Open Model Report
+
+To check the diagnostic viewer:
+- Simulink > View > Diagnostic viewer
+
+Communication established in TCP:
+- Run "arduino_bridge_to_esp" Arduino sketch
+- connect ESP8266 to wifi network: via serial Arduino terminal, or via Simulink (note: this is done automatically
+  on home network since the code seems to be launched at each power-up, but need testing on 
+  other wifi network)
+- create TCP server in Serial Arduino terminal: - (AT+RST if needed)
+		      				- AT+CIPMUX=1
+		      				- AT+CIPSERVER=1,1001  (1=create server, 1001=port of server on ESP8266)
+		      				- AT+CIFSR to get IP address
+- in Simulink, open "arduinowifi_tcp_hostsend", and specify the IP address of the ESP8266 and the
+  port of the server of the ESP8266
+- Run it
+
+Communication established in UDP:
+- Run Simulink "arduinodue_wifiudpreceive" configured for the wifi network that you want:
+  it will display an error but it will still assign an IP to ESP on this network
+  silently an IP address
+- Run "arduino_bridge_to_esp" Arduino sketch and type AT+CIFSR to obtain the assigned IP of ESP
+- Run Simulink arduinowifi_udp_hostsend", after specifying the ESP IP and port obtained before
+	+ add a converter block to ascii: takes as input a "double" type and outputs an "ascii" string on 7 bits
+- Receive the data on the Arduino Serial Terminal
+
+--> Now we have to know which data type does the ESP understand!
+
+Communication established in UDP, better way:
+- Run "arduino_bridge_to_esp" Arduino sketch and type:
+	- /AT+CWMODE=1
+	- AT+CWLAP   to list available networks
+	- AT+CWJAP="NUMERICABLE-D921","BEDEESNNGK"   to connect to the network
+	- AT+CIPSTA?     to check the IP address
+	- AT+CIFSR       to check the local IP address
+	- AT+CIPMUX=1
+	- AT+CIPSTART=0,"UDP","192.168.0.13",444,333,0  to communicate with my computer  (192.168.0.13=address of my computer,444=port of my computer, 333=port of ESP8266)
+- Run Simulink arduinowifi_udp_hostsend", after specifying the ESP IP and port obtained before
+	+ add a converter block to ascii: takes as input a "double" type and outputs an "ascii" string on 7 bits
+- Receive the data on the Arduino Serial Terminal
+
+Communication established in UDP ON THE OWN ESP WIFI NETWORK
+- Run "wifi_setup_v2" Arduino sketch.
+- Force a static IP address to the computer via computer configuration:
+  search > panneau de configuration > réseau et internet > afficher l'état et la gestion du réseau
+  > modifier les paramètres de la carte > clic droit sur Wi-Fi 2 > propriétés > protocole internet version 4 (TCP/IPv4)
+  > propriétés > utiliser l'addresse IP suivante:
+	- adresse IP: 192.168.4.2
+	- masque de sous-réseau: 255.255.255.0
+	- passerelle par défaut: 192.168.4.1
+- Run Simulink arduinowifi_udp_hostsend", after specifying the ESP IP and port (192.168.4.1, port 333)
+- Check the data on Serial Arduino Monitor

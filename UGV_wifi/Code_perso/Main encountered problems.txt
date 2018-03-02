@@ -1,0 +1,6 @@
+- When running as an access point, the ESP8266 assign itself the IP 192.168.4.1 .
+  However, it does not detect devices that connect to it and does not give them an IP address on his network.
+  Solutions tried:
+	- set esp as tcp server: no
+	- single mode connection (AT+CIPMUX=0): no
+	- link id modification: no
